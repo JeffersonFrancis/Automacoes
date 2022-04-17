@@ -4,7 +4,10 @@
 
 1. Efetuar login utilizando o aws-google-auth.
 2. Abrir o script.sh
-3. Preencher o campo ParameterName com o ARN do RDS que deseja adicionar as TAG's.
+3. Preencher o campo ParameterName com o ARN do RDS que deseja adicionar as TAG's. Segue o comando para obter o ARN:
+
+``` aws rds --profile addprofile --region us-east-1 describe-db-instances | grep DBInstanceArn ```
+
 4. Preencher o campo --profile com a role da conta no qual está o RDS.
 5. Executar o comando abaixo para adicionar as devidas permissões de execução no arquivo .sh:
 
