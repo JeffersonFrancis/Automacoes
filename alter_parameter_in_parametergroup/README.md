@@ -1,4 +1,4 @@
-## Script para adicionar TAG nos RDS AWS
+## Script para alterar um valor de um parametro do Parametergroup
 
 ### Como utilizar:
 
