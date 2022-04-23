@@ -5,6 +5,7 @@ O objetivo é disponibilizar script's para facilitar em algumas atividades rotin
 ## Indice
 
 add_tag_rds_aws_cli
+
 kill_session_mysql
 
 
