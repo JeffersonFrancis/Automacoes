@@ -10,7 +10,7 @@ O objetivo é disponibilizar script's para facilitar em algumas atividades rotin
 
 [kill_session_mysql](kill_session_mysql)
 
-[Ansible-CriacaodeRDS]("Ansible-Criacao_de_RDS")
+[Ansible-Criacao_de_RDS]("Ansible-Criacao_de_RDS")
 
 
 
