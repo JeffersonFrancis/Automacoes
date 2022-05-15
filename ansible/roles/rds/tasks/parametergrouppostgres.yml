@@ -1,0 +1,20 @@
+# Criacao e configuracao do parametergroup
+- rds_param_group:
+    state: "{{ param_state }}"
+    name: "{{ host }}"
+    description: "{{ host }}"
+    engine: "{{ engine_postgres }}"
+    immediate: "{{ immediate }}"
+    #params: 
+      #pegar: "{{ value }}"
+    tags:
+      bu: "{{ bu }}"
+      cost_optimized: "{{ cost_optimized }}"
+      environment: "{{ db_environment }}"
+      shared: "{{ shared }}"
+      squad: "{{ squad }}"
+      tribe: "{{ tribe }}"
+      terraform: "{{ terraform }}"
+  tags: 
+    - postgres-qa
+    - postgres-prod

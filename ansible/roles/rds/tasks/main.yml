@@ -1,0 +1,50 @@
+---
+# MySQL
+- name: Criando e configurando o parametergroup
+  include_tasks: parametergroup.yml
+  tags:
+    - mysql-qa
+    - mysql-prod
+
+- name: Criando o MySQL
+  include_tasks: create_mysql.yml
+  tags: 
+    - mysql-qa
+    - mysql-prod
+
+- name: Coletar Informacoes do BD Primario
+  include_tasks: db_instance_info.yml
+  tags: 
+    - mysql-qa
+    - mysql-prod
+
+- name: Criando o MySQL Replica
+  include_tasks: create_mysql_replica.yml
+  tags:
+    - mysql-prod
+
+# Postgres
+- name: Criando e configurando o parametergrouppostgres
+  include_tasks: parametergrouppostgres.yml
+  tags:
+    - postgres-qa
+    - postgres-prod
+
+- name: Criando o Postgres
+  include_tasks: create_postgres.yml
+  tags: 
+    - postgres-qa
+    - postgres-prod
+
+- name: Coletar Informacoes do BD Primario Postgres
+  include_tasks: db_instance_info.yml
+  tags: 
+    - postgres-qa
+    - postgres-prod
+
+- name: Criando o Postgres Replica
+  include_tasks: create_postgres_replica.yml
+  tags:
+    - postgres-prod
+
+...

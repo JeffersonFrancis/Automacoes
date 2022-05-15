@@ -1,0 +1,29 @@
+---
+
+multi_az: yes
+backup_retention_period: 20
+auto_minor_version_upgrade: false
+db_engine: mysql
+db_engine_postgres: postgres
+db_instance_class: db.t3.medium
+
+# Disk
+max_allocated_storage: 1000
+
+# Network
+db_subnet_group_name: "spb-microservices-infra-databasewiretransfer-1vwn3pccl5ugf-auroraclustermysqldbsubnetgroup-1r5jrfg07sshb"
+vpc_security_group_ids:
+  - sg-01e34936242c7f9fa
+
+# Monitoring
+enable_performance_insights: yes
+monitoring_role_arn: "arn:aws:iam::070375095195:role/rds-monitoring-role"
+
+# Security
+kms_key_id: "5246f21a-160b-4099-9d9b-68f03740a535"
+
+
+# Tags
+db_environment: "prd"
+
+...

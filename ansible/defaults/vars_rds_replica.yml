@@ -1,0 +1,13 @@
+---
+
+# Criacao de RDS
+read_replica: yes
+multi_az_replica: no
+host_replica: "{{ host }}-ro"
+source_db_instance_identifier: "{{ info_database | json_query('*[0].db_instance_arn | [0]') }}"
+#engine_version: "" -> comentado para sempre utilizar a versao mais recente
+backup_retention_period_replica: 0
+
+
+
+...

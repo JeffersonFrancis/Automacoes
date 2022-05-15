@@ -1,0 +1,28 @@
+---
+
+multi_az: yes
+backup_retention_period: 20
+auto_minor_version_upgrade: false
+db_engine: mysql
+db_engine_postgres: postgres
+db_instance_class: db.t3.medium
+
+# Disk
+max_allocated_storage: 1000
+
+# Network
+db_subnet_group_name: "jd-db-subnet-group"
+vpc_security_group_ids:
+  - sg-08999f5585fdc8b8e
+
+# Monitoring
+enable_performance_insights: yes
+monitoring_role_arn: "arn:aws:iam::070375095195:role/rds-monitoring-role"
+
+# Security
+kms_key_id: "5efb4fae-f103-4efe-b0a2-b84bbf0c7a06"
+
+# Tags
+db_environment: "prd"
+
+...

@@ -1,0 +1,208 @@
+# Criacao e configuracao dos usuarios
+---
+
+service_user:
+  - name: 'usr_pmm'
+    password: 'NMiLyxNEHyizc6'
+    host: "%"
+    priv: "*.*:USAGE,SELECT,SHOW VIEW,PROCESS,REPLICATION CLIENT,RELOAD"
+    resource_limits:
+      MAX_USER_CONNECTIONS: 10
+    state: present
+
+  - name: "usr_dba"
+    password: "!3usr*()dba2@"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "vinicius_yosiura"
+    password: "tend3ncias_su1cid4s"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "jefferson_francis"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "amanda_almeida"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "douglas_vasconcelos"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "paola_stekl"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "vinicius_oliveira"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "vitor_campos"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "diego_monteiro"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "flavia_bomfim"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "luan_fornazier"
+    password: "picpay2000"
+    host: "%"
+    priv: "*.*:SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,RELOAD,PROCESS,REFERENCES,INDEX,ALTER,SHOW DATABASES,CREATE TEMPORARY TABLES,LOCK TABLES,EXECUTE,REPLICATION SLAVE,REPLICATION CLIENT,CREATE VIEW,SHOW VIEW,CREATE ROUTINE,ALTER ROUTINE,CREATE USER,EVENT,TRIGGER,GRANT"
+    state: present
+
+  - name: "usr_metabase"
+    password: "])9JRUjee36!"
+    host: "%"
+    priv: "*.*:SELECT,USAGE,SHOW VIEW"
+    state: present
+
+  - name: "usr_airflow"
+    password: "DCpcrFffp0"
+    host: "%"
+    priv: "*.*:SELECT,USAGE,SHOW VIEW"
+    state: present
+
+  - name: "usr_cdc"
+    password: "hUiQwpoTN6QUNx64T"
+    host: "%"
+    priv: "*.*:SELECT,RELOAD,SHOW DATABASES,REPLICATION SLAVE,REPLICATION CLIENT"
+    state: present
+
+  - name: "usr_db_exporter"
+    password: "THjui69Iop6"
+    host: "%"
+    priv: "*.*:SELECT,PROCESS,REPLICATION CLIENT,REPLICATION SLAVE"
+    resource_limits:
+      MAX_USER_CONNECTIONS: 10
+    state: present
+
+  - name: "{{ usr_app_name }}"
+    password: "{{ usr_app_password }}"
+    host: "%"
+    priv: "{{ dbname }}.*:INSERT,UPDATE,SELECT,SHOW VIEW,EXECUTE,USAGE"
+    state: present
+
+service_user_postgres:
+  - name: "usr_metabase"
+    password: "])9JRUjee36!"
+    role_attr_flags:
+    priv: "ALL"
+    state: present
+
+  - name: "usr_airflow"
+    password: "DCpcrFffp0"
+    role_attr_flags:
+    priv: "ALL"
+    state: present
+
+  - name: 'usr_pmm'
+    password: 'NMiLyxNEHyizc6'
+    role_attr_flags:
+    priv: "ALL"
+    state: present
+
+  - name: "usr_dba"
+    password: "!3usr*()dba2@"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "amanda_almeida"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "diego_monteiro"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+  
+  - name: "douglas_vasconcelos"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "jefferson_francis"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "paola_stekl"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "vinicius_oliveira"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "vinicius_yosiura"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "vitor_campos"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "luan_fornazier"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "diego_monteiro"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "flavia_bomfim"
+    password: "picpay2000"
+    role_attr_flags: CREATEDB,CREATEROLE,LOGIN
+    priv: "ALL"
+    state: present
+
+  - name: "{{ usr_app_name }}"
+    password: "{{ usr_app_password }}"
+    role_attr_flags: NOSUPERUSER,NOCREATEDB,NOCREATEROLE,NOINHERIT,LOGIN
+    priv: ""
+    state: present
+
+...

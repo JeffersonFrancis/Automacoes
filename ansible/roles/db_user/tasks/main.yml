@@ -1,0 +1,41 @@
+---
+
+#MYSQL
+- name: MYSQL - Criando e configurando os usuarios
+  include_tasks: user.yml
+  with_items:
+    "{{ service_user }}"
+  no_log: true
+  tags:
+    - mysql-qa
+    - mysql-prod
+
+#POSTGRES
+- name: POSTGRES - Criando o schema e adicionando o usuario ROOT como owner
+  include_tasks: schema.yml
+  tags:
+    - postgres-qa
+    - postgres-prod
+
+- name: POSTGRES - Criando e configurando os usuarios
+  include_tasks: user_postgres.yml
+  with_items:
+    "{{ service_user_postgres }}"
+  no_log: true
+  tags:
+    - postgres-qa
+    - postgres-prod
+
+- name: POSTGRES - Adicionar os grants
+  include_tasks: user_postgres_grant.yml
+  tags:
+    - postgres-qa
+    - postgres-prod
+
+- name: POSTGRES - Configurando o usuario da aplicacao
+  include_tasks: user_postgres_privs.yml
+  tags:
+    - postgres-qa
+    - postgres-prod
+
+...

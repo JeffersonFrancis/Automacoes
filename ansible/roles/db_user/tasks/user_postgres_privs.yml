@@ -1,0 +1,17 @@
+---
+
+- postgresql_query:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_user_password }}"
+    login_host: "{{ info_database | json_query('*[0].endpoint.address | [0]') }}"
+    login_port: "{{ db_port_postgres }}"
+    db: "{{ dbname }}"
+    autocommit: yes
+    query: GRANT USAGE, CREATE ON SCHEMA "{{ dbname }}" to "{{ usr_app_name }}"; 
+           ALTER USER "{{ usr_app_name }}" SET search_path = "{{ dbname }}";
+           GRANT INSERT,SELECT,UPDATE,DELETE ON all tables IN SCHEMA "{{ dbname }}" TO "{{ usr_app_name }}";
+  tags: 
+    - postgres-qa
+    - postgres-prod
+
+...

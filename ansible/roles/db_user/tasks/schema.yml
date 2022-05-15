@@ -1,0 +1,14 @@
+---
+
+- postgresql_schema:
+    login_host: "{{ info_database | json_query('*[0].endpoint.address | [0]') }}"
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_user_password }}"
+    db: "{{ dbname }}"
+    name: "{{ dbname }}"
+    owner: "{{ master_username }}"
+  tags: 
+    - postgres-qa
+    - postgres-prod
+
+...

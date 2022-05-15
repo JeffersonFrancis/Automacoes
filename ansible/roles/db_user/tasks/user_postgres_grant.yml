@@ -1,0 +1,28 @@
+---
+
+# Adicionando os privilegios de superuser
+- postgresql_membership:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_user_password }}"
+    login_host: "{{ info_database | json_query('*[0].endpoint.address | [0]') }}"
+    login_port: "{{ db_port_postgres }}"
+    db: "{{ dbname }}"
+    group: rds_superuser
+    target_roles:
+    - usr_dba
+    - amanda_almeida
+    - diego_monteiro
+    - douglas_vasconcelos
+    - jefferson_francis
+    - paola_stekl
+    - vinicius_oliveira
+    - vinicius_yosiura
+    - vitor_campos
+    - luan_fornazier
+    - flavia_bomfim
+    state: present
+  tags:
+    - postgres-qa
+    - postgres-prod
+
+...

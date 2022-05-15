@@ -1,0 +1,21 @@
+---
+
+# Criando usuario
+- postgresql_user:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_user_password }}"
+    login_host: "{{ info_database | json_query('*[0].endpoint.address | [0]') }}"
+    login_port: "{{ db_port_postgres }}"
+    db: "{{ dbname }}"
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    role_attr_flags: "{{ item.role_attr_flags }}"
+    priv: "{{ item.priv }}"
+    state: "{{ item.state }}"
+  tags: 
+    - postgres-qa
+    - postgres-prod
+
+
+
+...

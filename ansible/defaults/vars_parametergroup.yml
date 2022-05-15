@@ -1,0 +1,22 @@
+---
+# MySQL
+# parametergroup
+param_state: present
+engine: "mysql8.0"
+immediate: no
+
+# parametros de configuracao
+max_allowed_packet: 1073741824
+innodb_log_file_size: 2147483648
+binlog_format: "ROW"
+sync_binlog: 1000
+innodb_flush_log_at_trx_commit: 2
+max_connect_errors: 99999
+innodb_online_alter_log_max_size: 1073741824
+
+#=============================================
+# PostgreSQL
+# parametergroup
+engine_postgres: "postgres13"
+
+...

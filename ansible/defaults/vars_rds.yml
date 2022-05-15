@@ -1,0 +1,38 @@
+---
+
+# Criacao de RDS MYSQL
+
+login_host: "{{ info_database | json_query('*[0].endpoint.address | [0]') }}"
+db_port: 3306
+#engine_version: "" -> comentado para sempre utilizar a versao mais recente
+copy_tags_to_snapshot: true
+preferred_backup_window: "06:00-08:00"
+preferred_maintenance_window: "Mon:04:00-Mon:06:00"
+
+# Disk
+storage_type: "gp2"
+allocated_storage: 20
+storage_encrypted: yes
+
+# Network
+publicly_accessible: false
+
+# Monitoring
+monitoring_interval: 60
+
+# Tags rds / parameters group
+cost_optimized: false
+shared: false
+terraform: false
+
+#Ansible
+state: present
+
+#=============================
+
+# Postgres
+
+db_port_postgres: 5432
+
+...
+

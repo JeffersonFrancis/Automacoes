@@ -1,0 +1,26 @@
+# Criacao e configuracao do parametergroup
+- rds_param_group:
+    state: "{{ param_state }}"
+    name: "{{ host }}"
+    description: "{{ host }}"
+    engine: "{{ engine }}"
+    immediate: "{{ immediate }}"
+    params: 
+      max_allowed_packet: "{{ max_allowed_packet }}"
+      innodb_log_file_size: "{{ innodb_log_file_size }}"
+      binlog_format: "{{ binlog_format }}"
+      sync_binlog: "{{ sync_binlog }}"
+      innodb_flush_log_at_trx_commit: "{{ innodb_flush_log_at_trx_commit }}"
+      max_connect_errors: "{{ max_connect_errors }}"
+      innodb_online_alter_log_max_size: "{{ innodb_online_alter_log_max_size }}"
+    tags:
+      bu: "{{ bu }}"
+      cost_optimized: "{{ cost_optimized }}"
+      environment: "{{ db_environment }}"
+      shared: "{{ shared }}"
+      squad: "{{ squad }}"
+      tribe: "{{ tribe }}"
+      terraform: "{{ terraform }}"
+  tags: 
+    - mysql-qa
+    - mysql-prod

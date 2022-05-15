@@ -1,0 +1,28 @@
+---
+
+multi_az: yes
+backup_retention_period: 20
+auto_minor_version_upgrade: false
+db_engine: mysql
+db_engine_postgres: postgres
+db_instance_class: db.t3.medium
+
+# Disk
+max_allocated_storage: 1000
+
+# Network
+db_subnet_group_name: "picpay-ops-db-subnetgroup"
+vpc_security_group_ids:
+  - sg-07f5d57d9923c6d57
+
+# Monitoring
+enable_performance_insights: yes
+monitoring_role_arn: "arn:aws:iam::306435756286:role/rds-monitoring-role"
+
+# Security
+kms_key_id: "cdb83fde-cc77-4c92-b723-5ee06227b704"
+
+# Tags
+db_environment: "prd"
+
+...

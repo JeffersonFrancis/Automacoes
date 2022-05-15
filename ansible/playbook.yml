@@ -1,0 +1,15 @@
+---
+
+- name: Default Playbook - Starting Deploy
+  hosts: "{{ host }}"
+  connection: local
+  vars_files:
+    - defaults/user_root.yml
+    - defaults/vars_parametergroup.yml
+    - defaults/vars_rds.yml
+    - defaults/vars_rds_replica.yml
+  roles:
+    - rds
+    - db_user
+
+...

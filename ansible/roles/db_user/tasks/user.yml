@@ -1,0 +1,18 @@
+---
+
+- mysql_user:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_user_password }}"
+    login_host: "{{ info_database | json_query('*[0].endpoint.address | [0]') }}"
+    login_port: "{{ db_port }}"
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    host: "{{ item.host }}"
+    priv: "{{ item.priv }}"
+    resource_limits: "{{ item.resource_limits | default(omit) }}"
+    state: "{{ item.state }}"
+  tags: 
+    - mysql-qa
+    - mysql-prod
+
+...

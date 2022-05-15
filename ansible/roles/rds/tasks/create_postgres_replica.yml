@@ -1,0 +1,53 @@
+# Criando o Postgres
+- rds_instance:
+    # Postgres
+    read_replica: "{{ read_replica }}"
+    multi_az: "{{multi_az_replica}}"
+    source_db_instance_identifier: "{{ source_db_instance_identifier }}"
+    id: "{{ host_replica }}"
+    port: "{{ db_port_postgres }}"
+    db_instance_class: "{{ db_instance_class }}"
+    # availability_zone: ""
+    backup_retention_period: "{{ backup_retention_period_replica }}"
+    copy_tags_to_snapshot: "{{ copy_tags_to_snapshot }}"
+    preferred_backup_window: "{{ preferred_backup_window }}"
+    preferred_maintenance_window: "{{ preferred_maintenance_window }}"
+    auto_minor_version_upgrade: "{{ auto_minor_version_upgrade }}"
+    #deletion_protection: true - pensar em uma forma
+    
+    # Disk
+    storage_type: "{{ storage_type }}"
+    allocated_storage: "{{ allocated_storage }}"
+    storage_encrypted: "{{ storage_encrypted }}"
+    max_allocated_storage: "{{ max_allocated_storage }}"
+
+    # Network
+    db_subnet_group_name: "{{ db_subnet_group_name }}"
+    publicly_accessible: "{{ publicly_accessible }}"
+    vpc_security_group_ids: "{{ vpc_security_group_ids }}"
+
+    # Monitoring
+    enable_performance_insights: "{{ enable_performance_insights }}"
+    monitoring_role_arn: "{{ monitoring_role_arn }}"
+    monitoring_interval: "{{ monitoring_interval }}"
+    enable_cloudwatch_logs_exports: "{{ postgres_enable_cloudwatch_logs_exports }}"
+    
+    # Security
+    kms_key_id: "{{ kms_key_id }}"
+    
+    # Tags
+    tags:
+      application: "{{ host }}" 
+      bu: "{{ bu }}"
+      cost_optimized: "{{ cost_optimized }}"
+      docs: "{{ docs }}"
+      environment: "{{ db_environment }}"
+      shared: "{{ shared }}"
+      squad: "{{ squad }}"
+      tribe: "{{ tribe }}"
+      terraform: "{{ terraform }}"
+    
+    #Ansible
+    state: "{{ state }}"
+  tags: 
+    - postgres-prod

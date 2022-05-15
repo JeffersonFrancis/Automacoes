@@ -1,0 +1,14 @@
+---
+# MYSQL
+enable_cloudwatch_logs_exports:
+- error
+- slowquery
+- audit
+- general
+
+#POSTGRES
+postgres_enable_cloudwatch_logs_exports:
+- postgresql
+- upgrade
+
+...

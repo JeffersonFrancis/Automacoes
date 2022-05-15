@@ -1,0 +1,20 @@
+---
+
+- rds_instance_info:
+    db_instance_identifier: "{{ host }}"
+  register: info_database
+  tags: 
+    - mysql-qa
+    - mysql-prod
+    - postgres-qa
+    - postgres-prod
+
+#- name: print
+#  debug:
+#    msg: "{{ info_database | json_query('*[0].endpoint.address | [0]') }}" 
+    #msg: "{{ info_database | json_query('*[0].endpoint.address | [0]') }}"
+#  tags: 
+#    - postgres-qa
+#    - mysql-prod  
+
+...
