@@ -1,0 +1,10 @@
+---
+
+- name: Adicionar o usuario da aplicacao no DBPM
+  shell: dbpm add --user "{{ usr_app_name }}" --password "{{ usr_app_password }}" --ms ms-"{{ dbname }}" --rsname "{{ info_database | json_query('*[0].endpoint.address | [0]') }}" --rstype RDS --env "{{ dbpm_db_environment }}" --project ms-"{{ dbpm_db_environment }}" --comment “Senha aplicação do RDS de {{ dbpm_db_environment }} do ms {{ dbname }}”
+  tags: 
+  - mysql-qa
+  - mysql-prod
+  - postgres-qa
+  - postgres-prod
+...

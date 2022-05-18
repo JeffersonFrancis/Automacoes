@@ -24,5 +24,6 @@ kms_key_id: "5efb4fae-f103-4efe-b0a2-b84bbf0c7a06"
 
 # Tags
 db_environment: "prd"
+dbpm_db_environment: 'PROD'
 
 ...

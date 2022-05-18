@@ -24,5 +24,6 @@ kms_key_id: "0a4f7d2a-2843-4e9a-b6bb-51687b9d6f86"
 
 # Tags
 db_environment: "hom"
+dbpm_db_environment: 'QA'
 
 ...
