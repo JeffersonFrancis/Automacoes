@@ -11,18 +11,19 @@ db_instance_class: db.t3.micro
 max_allocated_storage: 100
 
 # Network
-db_subnet_group_name: "picpay-ops-msqa-rds-subnetgroup"
+db_subnet_group_name: "zzz"
 vpc_security_group_ids:
   - sg-042a104b2bc1531ee
 
 # Monitoring
 enable_performance_insights: false
-monitoring_role_arn: "arn:aws:iam::462495227997:role/rds-monitoring-role"
+monitoring_role_arn: "arn:aws:iam::zzz"
 
 # Security
-kms_key_id: "0a4f7d2a-2843-4e9a-b6bb-51687b9d6f86"
+kms_key_id: "zzz"
 
 # Tags
 db_environment: "hom"
+dbpm_db_environment: 'QA'
 
 ...

@@ -11,18 +11,19 @@ db_instance_class: db.t3.micro
 max_allocated_storage: 100
 
 # Network
-db_subnet_group_name: "jd-db-subnet-group"
+db_subnet_group_name: "zzz"
 vpc_security_group_ids:
-  - sg-0a6ad40b161318e8a
+  - sg-zzz
 
 # Monitoring
 enable_performance_insights: false
-monitoring_role_arn: "arn:aws:iam::479550711906:role/rds-monitoring-role"
+monitoring_role_arn: "arn:aws:iam::zzz"
 
 # Security
-kms_key_id: "f6518199-c436-42fb-aae4-c9b2f9f81937"
+kms_key_id: "zzz"
 
 # Tags
 db_environment: "hom"
+dbpm_db_environment: 'QA'
 
 ...

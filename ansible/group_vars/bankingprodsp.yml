@@ -11,18 +11,19 @@ db_instance_class: db.t3.medium
 max_allocated_storage: 1000
 
 # Network
-db_subnet_group_name: "jd-db-subnet-group"
+db_subnet_group_name: "zzz"
 vpc_security_group_ids:
-  - sg-08999f5585fdc8b8e
+  - sg-zzz
 
 # Monitoring
 enable_performance_insights: yes
-monitoring_role_arn: "arn:aws:iam::070375095195:role/rds-monitoring-role"
+monitoring_role_arn: "arn:aws:iam::zzz"
 
 # Security
-kms_key_id: "5efb4fae-f103-4efe-b0a2-b84bbf0c7a06"
+kms_key_id: "zzz"
 
 # Tags
 db_environment: "prd"
+dbpm_db_environment: 'PROD'
 
 ...
